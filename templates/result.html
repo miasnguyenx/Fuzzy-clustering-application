@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Greeting!</title>
+    <link rel="stylesheet" href="{{ url_for('static',
+            filename='css/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.gif')}}">
+</head>
+
+<body>
+
+    <h6>ASWC: {{res['aswc']}}
+    </h6>
+    <h6>Davies_bouldin: {{res['bouldin']}}
+    </h6>
+    <br> {%for i in range(0, res['num_cluster'])%}
+    <h6>Cluster centers {{i}}: {{res['cluster_center'][i]}}</h6>
+    {%endfor%}
+
+    <br>
+    <div class="Clustering-label">
+        {% block content %}
+
+        <table id="data" class="table table-sm table-striped">
+            <thead class="thead-light">
+                <tr>
+                    <th>Id</th>
+                    <th>Features</th>
+                    <th>Label</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for i in range(0, res['num_elm'])%}
+                <tr>
+                    <td>{{res['elm_id'][i]}}</td>
+                    <td>{{res['df'][i]}}</td>
+                    <td>{{res['cluster_label'][i]}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endblock %}
+    </div>
+</body>
+<script>
+    window.onload = function() {
+        document.getElementById(" loading ").style.display = "none "
+    }
+</script>
+
+</html>

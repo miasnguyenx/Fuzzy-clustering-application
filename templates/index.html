@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>User Greeting!</title>
+    <link rel="stylesheet" href="{{ url_for('static',
+            filename='css/style.css')
+            }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/icon.gif')
+            }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1>Fuzzy clustering MC-2FCM</h1>
+    <form action="/result_mcfcm" method="POST" class="form-style-4" target="_blank">
+        <!-- <div class="form-group">
+            <h2>Dataset</h2><br>
+
+            <select name="dataset" class="dataset-select" id="">
+                    <option value="Iris">Iris</option>
+                    <option value="Ecoli">Ecoli</option>
+                    <option value="WDBC">WDBC</option> <br>
+                </select>
+            <div id="show-dataset-button"></div>
+            <div id="dataset-table-div"></div>
+        </div> -->
+        <h2>Clustering parameters</h2><br>
+        <div>
+            <!-- <input type="text" name="fuzzyCoeff" placeholder="Fuzzy Coefficent" /><br> -->
+            <input type="text" name="mU" placeholder="mU" /><br>
+            <input type="text" name="mL" placeholder="mL" /><br>
+            <input type="text" name="alpha" placeholder="Alpha" /><br>
+            <input type="text" name="k" placeholder="Number of cluster" /><br>
+            <textarea cols="40" name="inputData" id="inputData" rows="8" spellcheck="true" class="inputData"></textarea><br>
+            <div class="option-algo">
+                <input type="submit" value="MC-FCM">
+                <input type="submit" formaction="result_mcfcm_1" value="MC-FCM 2.1">
+                <input type="submit" formaction="result_mcfcm_2" value="MC-FCM 2.2">
+            </div>
+        </div>
+    </form>
+    <script>
+    </script>
+</body>
+
+
+</html>
